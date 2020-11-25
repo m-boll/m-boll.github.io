@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Max Boll - Computer Scientist / Cyber Security Enthusiast / Photographer</title>
+        <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no,viewport-fit=cover">
+        <link rel="apple-touch-icon" sizes="57x57" href="/images/apple-icon-57x57.png">
+        <link rel="apple-touch-icon" sizes="60x60" href="/images/apple-icon-60x60.png">
+        <link rel="apple-touch-icon" sizes="72x72" href="/images/apple-icon-72x72.png">
+        <link rel="apple-touch-icon" sizes="76x76" href="/images/apple-icon-76x76.png">
+        <link rel="apple-touch-icon" sizes="114x114" href="/images/apple-icon-114x114.png">
+        <link rel="apple-touch-icon" sizes="120x120" href="/images/apple-icon-120x120.png">
+        <link rel="apple-touch-icon" sizes="144x144" href="/images/apple-icon-144x144.png">
+        <link rel="apple-touch-icon" sizes="152x152" href="/images/apple-icon-152x152.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-icon-180x180.png">
+        <link rel="icon" type="image/png" sizes="192x192"  href="/images/android-icon-192x192.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="96x96" href="/images/favicon-96x96.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+        <link rel="manifest" href="/config/site.webmanifest">
+        <link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+        <link rel="shortcut icon" href="/images/favicon.ico">
+        <meta name="theme-color" content="#3b3b3b">
+        <meta name="msapplication-navbutton-color" content="#3b3b3b">
+        <meta name="msapplication-TileColor" content="#00aba9">
+        <meta name="msapplication-TileImage" content="/images/ms-icon-144x144.png">
+        <meta name="msapplication-config" content="/config/browserconfig.xml">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+        <script async src="https://kit.fontawesome.com/ef698c40aa.js" crossorigin="anonymous"></script>
+        <script src="https://unpkg.com/smoothscroll-polyfill/dist/smoothscroll.min.js"></script>
+        <script src="https://unpkg.com/smoothscroll-anchor-polyfill"></script>
+        <script src="./script/bodyScrollLock.min.js"></script>
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100;200;300;400&display=swap" />
+        <link rel="stylesheet" href="style.css" type="text/css" />
+    </head>
+    <body>
+        <noscript class="noscript">You need to enable JavaScript to view this page.</noscript>
+        <nav id="menubar" class="menubar">
+            <a href="#home" onclick="changeMenuMarker(this,true)" class="menu_active">Home</a>
+            <a href="#about" onclick="changeMenuMarker(this,true)">About</a>
+            <a href="#skills" onclick="changeMenuMarker(this,true)">Skills</a>
+            <a href="#pub" class="full_pub" onclick="changeMenuMarker(this,true)">Publications</a>
+            <a href="#pub" class="short_pub" onclick="changeMenuMarker(this,true)">Publicat.</a>
+            <div id="marker" class="start-home"></div>
+        </nav>
+        <div id="parallax" class="parallax">
+            <div class="anti_top_shadow_wrapper">
+                <div id="group1" class="parallax_group">
+                    <div class="parallax_layer parallax_layer-base">
+                        <a id="home" class="scroll_tag"></a>
+                        <div class="title_container">
+                            <div class="title_top">
+                                <div class="title_text1">Max</div>
+                                <div class="title_text2">Boll</div>
+                            </div>
+                            <div class="title_line"></div>
+                            <div class="title_bottom">
+                                <div class="title_text3">
+                                    <div><i class="fas fa-desktop fa-sm fa-fw"></i>&nbsp;Computer Scientist</div>
+                                    <div><i class="fas fa-shield-alt fa-sm fa-fw"></i>&nbsp;Cyber Security Enthusiast</div>
+                                    <div><i class="fas fa-camera-retro fa-sm fa-fw"></i>&nbsp;Photographer</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="scroll_indicator" class="scroll_indicator_box">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="group2" class="parallax_group">
+                <div class="parallax_layer parallax_layer-base">
+                    <a id="about" class="scroll_tag_t55"></a>
+                    <div class="outer_container">
+                        <div class="trans_box">
+                            <img src="./images/profile.jpg" alt="Profile Picture" class="profile_image">
+                            <div class="profile_detail">
+                                <p>I am Max Boll, a graduated computer scientist (Master of Science), developer and occasional bug hunter from Hanover, Germany.</p>
+                                <p id="hobby_part">Since the early days of my studies I've had a keen interest in the world of cybersecurity and ethical hacking. 
+                                After earning my bachelor's degree in computer science at Leibniz University of Hanover in 2017, I started to focus on cyber security in more detail and decided to pursue an IT master's degree specializing in this scientific field at TU Braunschweig (technical university).</p>
+                                <p>In my leisure time I like to play CTFs and hunt for web vulnerabilities on bug bounty programs.
+                                Furthermore, I am a hobby photographer with a passion for landscape and portrait shooting. 
+                                When I have fed up with all of these digital media and need to clear my mind, I enjoy sailing my Ixylon or or going for a long run.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="parallax_layer parallax_layer-back"></div>
+            </div>
+            <div id="group3" class="parallax_group">
+                <div class="parallax_layer parallax_layer-base">
+                    <a id="skills" class="scroll_tag"></a>
+                    <div id="skill_container" class="skill_container">
+                        <div class="u_headline">Skills</div>
+                        <div class="skill_content_container">
+                            <div class="skill_box skill_column_a">
+                                <div class="skill_title">
+                                    <div class="skill_img">
+                                        <div class="skill_icon">
+                                            <i class="fas fa-code fa-2x fa-fw" style="color:rgb(120,120,120);"></i>
+                                        </div>
+                                    </div>
+                                    <h3>
+                                        Programming / Scripting
+                                    </h3>
+                                    <div class="skill_grey_bar"></div>
+                                </div>
+                                <div class="skill_description_container">
+                                    <p>I have advanced proficiency in the programming languages Python, C, and Java as well as intermediate knowledge of JavaScript (NodeJS), SQL, Bash (Shell), HTML, and CSS.</p>
+                                </div>
+                            </div>
+                            <div class="skill_box skill_column_b">
+                                <div class="skill_title">
+                                    <div class="skill_img">
+                                        <div class="skill_icon">
+                                            <i class="fas fa-bug fa-2x fa-fw" style="color:rgb(120,120,120);"></i>
+                                        </div>
+                                    </div>
+                                    <h3>
+                                        Ethical Hacking
+                                    </h3>
+                                    <div class="skill_grey_bar"></div>
+                                </div>
+                                <div class="skill_description_container">
+                                    <p>During the past two years ethical hacking has become one of my core competencies. I enjoy participating in bug bounty programs and testing for various flaws and vulnerabilities on web/mobile applications. Hacking labs as PentesterLab or TryHackMe offer me a wide range of possibilities to improve my hacking techniques and learn new ways of exploiting software bugs.</p>
+                                </div>
+                            </div>
+                            <div class="skill_box skill_column_c">
+                                <div class="skill_title">
+                                    <div class="skill_img">
+                                        <div class="skill_icon">
+                                            <i class="fas fa-brain fa-2x fa-fw" style="color:rgb(120,120,120);"></i>
+                                        </div>
+                                    </div>
+                                    <h3>
+                                        Machine Learning
+                                    </h3>
+                                    <div class="skill_grey_bar"></div>
+                                </div>
+                                <div class="skill_description_container">
+                                    <p>Besides the preparation of data for machine learning, I also have experience in various learning algorithms, such as SVMs, decision trees, neural networks, and Bayesian methods. Additionally, I am particularly interested in the application of this concept to cybersecurity-related topics, e.g., intelligent vulnerability discovery.</p>
+                                </div>
+                            </div>
+                            <div class="skill_box skill_column_d">
+                                <div class="skill_title">
+                                    <div class="skill_img">
+                                        <div class="skill_icon">
+                                            <i class="fas fa-cloud fa-2x fa-fw" style="color:rgb(120,120,120);"></i>
+                                        </div>
+                                    </div>
+                                    <h3>
+                                        Cloud Computing
+                                    </h3>
+                                    <div class="skill_grey_bar"></div>
+                                </div>
+                                <div class="skill_description_container">
+                                    <p>In the course of my studies I got in touch with many different concepts of cloud computing, e.g., IaaS, PaaS and SaaS. In doing so, I was able to gain experience with various cloud-based services such as Amazon EC2, S3, Device Farm, RDS and Lambda. Furthermore, I am also familiar with other related technologies including containerizing applications using Docker.</p>
+                                </div>
+                            </div>
+                            <div class="skill_box skill_column_e">
+                                <div class="skill_title">
+                                    <div class="skill_img">
+                                        <div class="skill_icon">
+                                            <i class="fas fa-camera-retro fa-2x fa-fw" style="color:rgb(120,120,120);"></i>
+                                        </div>
+                                    </div>
+                                    <h3>
+                                        Photography
+                                    </h3>
+                                    <div class="skill_grey_bar"></div>
+                                </div>
+                                <div class="skill_description_container">
+                                    <p>In my free time, one of my favorite hobbies is taking pictures of landscapes and people. Since landscapes, in particular, have a completely unique appearance from a bird's eye view, besides shooting with my camera, I started flying drones to be even more flexible in the composition of my pictures. Editing images with different products of Adobe's Creative Cloud, such as Lightroom or Photoshop, to convey the right mood to the viewer is another entertaining part of this hobby.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="group4" class="parallax_group">
+                <div class="parallax_layer parallax_layer-base">
+                    <a id="pub" class="scroll_tag"></a>
+                    <div class="outer_container">
+                        <div class="trans_box">
+                            <div class="u_headline pub">Publications</div>
+                            <div class="link-card-container">
+                                <a href="https://www.brandeins.de/magazine/brand-eins-wirtschaftsmagazin/2019/unabhaengigkeit/smartphones-legaler-lauschangriff" class="a_link-card" target="_blank" rel="noopener noreferrer">
+                                    <div class="link-card">
+                                        <div class="link-card_image">
+                                            <img src="data:image/png;base64,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">
+                                        </div>
+                                        <div class="link-card_padding_container"></div>
+                                        <div class="link-card_info">
+                                            <div class="link-card_date">
+                                                <span>June 2019</span>
+                                            </div>
+                                            <div class="link-card_title">Alphonso Software: Legaler Lauschangriff</div>
+                                            <div class="link-card_publisher">brand eins Magazin</div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="parallax_layer parallax_layer-back"></div>
+            </div>
+            <div class="anti_bottom_shadow_wrapper">
+                <div id="footer" class="parallax_group">
+                    <div class="parallax_layer parallax_layer-base">
+                        <div class="footer-container">
+                            <div class="headline_footer">
+                                <p>Do you have any questions or just looking for a little chat?</p>
+                                <p>Please do not hesitate to contact me.</p>
+                            </div>
+                            <div class="social-media_contact">
+                                <a href="https://www.facebook.com/bollmax" class="social-media_icon facebook" target="_blank" rel="noopener noreferrer">
+                                    <div class="social-media_tooltip">Facebook</div>
+                                    <span><i class="fa fa-facebook"></i></span>
+                                </a>
+                                <a href="https://www.instagram.com/ml_boll/" class="social-media_icon insta" target="_blank" rel="noopener noreferrer">
+                                    <div class="social-media_tooltip">Instagram</div>
+                                    <span><i class="fa fa-instagram"></i></span>
+                                </a>
+                                <a href="https://twitter.com/MaxBoll3" class="social-media_icon twitter" target="_blank" rel="noopener noreferrer">
+                                    <div class="social-media_tooltip">Twitter</div>
+                                    <span><i class="fa fa-twitter"></i></span>
+                                </a>
+                                <a href="https://www.linkedin.com/in/max-lukas-boll-a98431189/" class="social-media_icon linkedin" target="_blank" rel="noopener noreferrer">
+                                    <div class="social-media_tooltip">LinkedIn</div>
+                                    <span><i class="fab fa-linkedin-in"></i></span>
+                                </a>
+                                <a href="https://github.com/bolli95" class="social-media_icon github" target="_blank" rel="noopener noreferrer">
+                                    <div class="social-media_tooltip">Github</div>
+                                    <span><i class="fa fa-github"></i></span>
+                                </a>
+                                <a href="https://hackerone.com/mboll95" class="social-media_icon hackerone" target="_blank" rel="noopener noreferrer">
+                                    <div class="social-media_tooltip">HackerOne</div>
+                                    <span><i class="icon-hackerone"></i></span>
+                                </a>
+                                <a href="https://bugcrowd.com/mboll95" class="social-media_icon bugcrowd" target="_blank" rel="noopener noreferrer">
+                                    <div class="social-media_tooltip">Bugcrowd</div>
+                                    <span><i class="icon-bugcrowd"></i></span>
+                                </a>
+                            </div>
+                            <div class="footer_bottom">
+                                <p>&copy;2020 Max Boll &mdash; <a id="modalLink" href="javascript:void(0);">Imprint</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="imprint-modal" id="imprint_bg">
+            <div class="imprint-modal_content" id="imprint_modal">
+                <div id="imprint_modal_close" class="imprint-modal_close">
+                    <i class="fa fa-times"></i>
+                </div>
+                <div class="u_headline imprint-modal_heading">Imprint</div>
+                <div class="imprint-modal_paragraph">
+                    <h4>Angaben gem&auml;&szlig; &sect; 5 TMG</h4><br />
+                    <p>Max Boll<br />
+                    Nelkenstraße 22<br />
+                    30167 Hannover</p>
+                    <br class="imprint-modal_hide_space" />
+                    <br />
+                    <h4>Contact:</h4><br>
+                    <p><b>Phone:</b> +49 (0) 511 84401582<br />
+                    <b>E-Mail:</b> maxlukasboll@gmail.com</p>
+                </div>
+            </div>
+        </div>
+    </body>
+    <script>
+
+        var menuItemClickedQueue = [];
+
+        function resetMenuHighlighting(menubar) {
+            menubar.childNodes.forEach(function(x) {
+                if(x.nodeType == 1) {
+                    x.classList.remove("menu_active");
+                }
+            });
+        }
+
+        function changeMenuMarker(elem, clickEvt) {
+            if(menuItemClickedQueue.length === 0 || (clickEvt && menuItemClickedQueue[menuItemClickedQueue.length - 1] !== elem.text)) {
+                switch(elem.text) {
+                    case "Home": 
+                        document.getElementById("marker").className = "start-home";
+                        var menubar = document.getElementById("menubar");
+                        resetMenuHighlighting(menubar);
+                        elem.classList.add("menu_active");
+                        break;
+                    case "About":
+                        document.getElementById("marker").className = "start-about";
+                        var menubar = document.getElementById("menubar");
+                        resetMenuHighlighting(menubar);
+                        elem.classList.add("menu_active");
+                        break;
+                    case "Skills":
+                        document.getElementById("marker").className = "start-skills";
+                        var menubar = document.getElementById("menubar");
+                        resetMenuHighlighting(menubar);
+                        elem.classList.add("menu_active");
+                        break;
+                    case "Publications":
+                    case "Publicat.":
+                        document.getElementById("marker").className = "start-pub";
+                        var menubar = document.getElementById("menubar");
+                        resetMenuHighlighting(menubar);
+                        elem.classList.add("menu_active");
+                        break;
+                }
+                if(clickEvt) {
+                    menuItemClickedQueue.push(elem.text);
+                    setTimeout(function() {
+                        menuItemClickedQueue.shift();
+                    }, 900);
+                }
+            }
+        }
+
+        var group1 = document.getElementById("group1");
+        var group2 = document.getElementById("group2");
+        var group3 = document.getElementById("group3");
+        var group4 = document.getElementById("group3");
+        var skill_container = document.getElementById("skill_container");
+        var header = document.getElementById("menubar");
+        var marker = document.getElementById("marker");
+        var parallax =  document.getElementById("parallax");
+        var modalLink = document.getElementById("modalLink");
+        var modalBg = document.getElementById("imprint_bg");
+        var modal_imprint = document.getElementById("imprint_modal");
+        var modal_close = document.getElementById("imprint_modal_close");
+        var footer = document.getElementById("footer");
+        var rect_footer = footer.getBoundingClientRect();
+        var rect_g1 = group1.getBoundingClientRect();
+        var rect_g2 = group2.getBoundingClientRect();
+        var rect_g3 = group3.getBoundingClientRect();
+        var rect_g4 = group4.getBoundingClientRect();
+        var rect_head = header.getBoundingClientRect();
+
+        modalLink.onclick = function() {
+            modalBg.style.opacity = 1;
+            modalBg.style.visibility = "visible";
+            modal_imprint.style.opacity = 1;
+            modal_imprint.style.visibility = "visible";
+            modal_imprint.style.top = "50%";
+        };
+
+        modal_close.onclick = function() {
+            modalBg.style.opacity = 0;
+            modalBg.style.visibility = "hidden";
+            modal_imprint.style.opacity = 0;
+            modal_imprint.style.visibility = "hidden";
+            modal_imprint.style.top = "0%";
+        };
+
+        bodyScrollLock.disableBodyScroll(parallax);
+
+        function setDocHeight() {
+            setTimeout(function() {
+                bodyScrollLock.enableBodyScroll(parallax);
+                window.scrollTo(0,0);
+                modalBg.style.setProperty('height', Number(window.innerHeight) + 'px');
+                parallax.style.setProperty('height', Number(window.innerHeight) + 'px');
+                group1.style.setProperty('height', Number(window.innerHeight) + 'px');                
+                bodyScrollLock.disableBodyScroll(parallax);
+            }, 500);
+        }
+
+        function setGroup3BackgroundHeight() {
+            group3.style.setProperty('height', (Number(skill_container.getBoundingClientRect().height) + 20) + 'px');
+        }
+
+        function coordinateOrientationChange() {
+            var rect_g1_old = JSON.parse(JSON.stringify(rect_g1));
+            var rect_g2_old = JSON.parse(JSON.stringify(rect_g2));
+            var rect_g3_old = JSON.parse(JSON.stringify(rect_g3));
+            var rect_g4_old = JSON.parse(JSON.stringify(rect_g4));
+            var rect_footer_old = JSON.parse(JSON.stringify(rect_footer));
+            var rect_head_old = JSON.parse(JSON.stringify(rect_head));
+            setTimeout(function() {
+                var rect_g2_new = group2.getBoundingClientRect();
+                var rect_g3_new = group3.getBoundingClientRect();
+                var rect_g4_new = group4.getBoundingClientRect();
+                var rect_footer_new = footer.getBoundingClientRect();
+                if(0 > (rect_g1_old.y + rect_g1_old.height - rect_head_old.height) && 0 <= (rect_g2_old.y + rect_g2_old.height - rect_head_old.height)) {
+                    parallax.scrollBy(0, rect_g2_new.y - rect_g2_old.y);
+                } else if(0 > (rect_g2_old.y + rect_g2_old.height - rect_head_old.height) && 0 <= (rect_g3_old.y + rect_g3_old.height - rect_head_old.height)) {
+                    parallax.scrollBy(0, rect_g3_new.y - rect_g3_old.y);
+                } else if(0 > (rect_g3_old.y + rect_g3_old.height - rect_head_old.height) && 0 <= (rect_g4_old.y + rect_g4_old.height - rect_head_old.height)) {
+                    parallax.scrollBy(0, rect_g4_new.y - rect_g4_old.y);
+                } else if(0 > (rect_g4_old.y + rect_g4_old.height - rect_head_old.height) && 0 <= (rect_footer_old.y + rect_footer_old.height - rect_head_old.height)) {
+                    parallax.scrollBy(0, rect_footer_new.y - rect_footer_old.y);
+                }
+            }, 700);
+        }
+
+        window.addEventListener('resize', function() {setDocHeight(); setGroup3BackgroundHeight();});
+        window.addEventListener('orientationchange', coordinateOrientationChange);
+
+        setDocHeight();
+        setGroup3BackgroundHeight();
+
+        var isSafari = !!navigator.userAgent.match(/Version\/[\d\.]+.*Safari/);
+        var iOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+
+        if (isSafari && iOS) {
+            Array.from(document.getElementsByClassName("link-card_padding_container")).forEach(function(x) {
+                x.style.display = "block";
+            });
+            Array.from(document.getElementsByClassName("link-card_info")).forEach(function(x) {
+                x.style.paddingLeft = "10px";
+            });
+        }
+
+        parallax.addEventListener("scroll", function() {
+
+            rect_footer = footer.getBoundingClientRect();
+            rect_g1 = group1.getBoundingClientRect();
+            rect_g2 = group2.getBoundingClientRect();
+            rect_g3 = group3.getBoundingClientRect();
+            rect_g4 = group4.getBoundingClientRect();
+            rect_head = header.getBoundingClientRect();
+
+            header.classList.toggle("sticky_menu_bar", rect_g1.top < 0);
+
+            if(menuItemClickedQueue.length === 0) {
+                if(0 > (rect_g1.y + rect_g1.height - rect_head.height) && 0 <= (rect_g2.y + rect_g2.height - rect_head.height) && marker.className != "start-about") {
+                    changeMenuMarker(header.children[1],false);
+                } else if(0 > (rect_g2.y + rect_g2.height - rect_head.height) && 0 <= (rect_g3.y + rect_g3.height - rect_head.height) && marker.className != "start-skills") {
+                    changeMenuMarker(header.children[2],false);
+                } else if(0 > (rect_g3.y + rect_g3.height - rect_head.height) && marker.className != "start-pub") {
+                    changeMenuMarker(((window.getComputedStyle(header.children[3]).display === "none") ? header.children[4] : header.children[3]),false);
+                } else if(0 < (rect_g1.y + rect_g1.height - rect_head.height) && marker.className != "start-home") {
+                    changeMenuMarker(header.children[0],false);
+                }
+            }
+        });
+    </script>
+</html>

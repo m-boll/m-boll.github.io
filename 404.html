@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Max Boll - Computer Scientist / Cyber Security Enthusiast / Photographer</title>
+        <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no,viewport-fit=cover">
+        <meta name="theme-color" content="#3b3b3b">
+        <meta name="msapplication-navbutton-color" content="#3b3b3b">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+        <script async src="https://kit.fontawesome.com/ef698c40aa.js" crossorigin="anonymous"></script>
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100;200;300;400&display=swap" rel="stylesheet">
+        <style>
+            
+            html, body {
+                overflow: hidden;
+                background: #4d4d4d;
+                height: 100%;
+                width: 100%;
+                font-family: 'Josefin Sans', sans-serif;
+            }
+
+            * {
+                margin:0;
+                padding:0;
+            }
+
+            .page_container {
+                display: grid;
+                position: relative;
+                top: 0;
+                left: 0;
+                justify-content: center;
+                align-items: center;
+                height: 100%;
+                width: 100%;
+                overflow: hidden;
+            }
+
+            .wrapper_content {
+                justify-content: center;
+                align-items: center;
+            }
+
+            .headline {
+                font-size: 11rem;
+                font-weight: 100;
+                text-align: center;
+                color: #ffffff;
+            }
+
+            .description {
+                text-align: center;
+                color: #ffffff;
+                font-size: 1.4rem;
+                font-weight: 300;
+            }
+
+            .btn_container {
+                margin: 45px 0;
+                text-align:center;
+            }
+
+            .btn_back {
+                height: 30px;
+                background: #bdbdbd;
+                text-decoration: none;
+                color: #000000;
+                cursor: pointer;
+                padding: 1rem 1.5rem;
+                border: 0;
+                transition: all 0.5s;
+                border-radius: 35px;
+                box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+            }
+
+            .btn_back span {
+                position: relative;
+                top: 2px;
+                left: -8px;
+            }
+
+            .btn_back::before {
+                position: relative;
+                display: inline-block;
+                color: #ffffff;
+                padding-right: 3px;
+                left: -20px;
+                top: 2px;
+                font-family: "Font Awesome 5 Free";
+                font-weight: 900;
+                content: '\f060';
+                bottom: 0;
+                opacity: 0;
+            }
+
+            .btn_back:hover {
+                background: #313131;
+                color: #ffffff;
+                padding: 1rem 1rem 1rem 2.5rem;
+                transition: all 0.5s;
+            }
+
+            .btn_back:hover::before {
+                opacity: 1;
+                transition: all 0.3s;
+            }
+
+            @media screen and (max-height: 400px) and (orientation: landscape) {
+                .headline {
+                    font-size: 9rem;
+                }
+
+                .description {
+                    font-size: 1.2rem;
+                }
+            }
+
+        </style>
+    </head>
+    <body>
+        <div class="page_container">
+            <div class="wrapper_content">
+                <div class="headline">404</div>
+                <div class="description">Oh no... Something broke.</div>
+                <div class="btn_container">
+                    <a href="/" class="btn_back"><span>Go Back</span></a>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

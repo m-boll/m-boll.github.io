@@ -32,7 +32,7 @@
         <script src="./script/bodyScrollLock.min.js"></script>
         <link rel="preconnect" href="https://fonts.gstatic.com" />
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100;200;300;400&display=swap" />
-        <link rel="stylesheet" href="style.css" type="text/css" />
+        <link rel="stylesheet" href="style_not_min.css" type="text/css" />
     </head>
     <body>
         <noscript class="noscript">You need to enable JavaScript to view this page.</noscript>
@@ -78,10 +78,10 @@
                         <div class="trans_box">
                             <img src="./images/profile.jpg" alt="Profile Picture" class="profile_image">
                             <div class="profile_detail">
-                                <p>I am Max Boll, a graduated computer scientist (Master of Science), developer and occasional bug hunter from Hanover, Germany.</p>
+                                <p>I am Max Boll, a graduated computer scientist (Master of Science), developer and cyber security expert from Hanover, Germany, currently working as a security manager (penetration testing) at Finanz Informatik.</p>
                                 <p id="hobby_part">Since the early days of my studies I've had a keen interest in the world of cybersecurity and ethical hacking. 
                                 After earning my bachelor's degree in computer science at Leibniz University of Hanover in 2017, I started to focus on cyber security in more detail and decided to pursue an IT master's degree specializing in this scientific field at TU Braunschweig (technical university).</p>
-                                <p>In my leisure time I like to play CTFs and hunt for web vulnerabilities on bug bounty programs.
+                                <p>In my leisure time I like to play CTFs or participate in ethical hacking labs.
                                 Furthermore, I am a hobby photographer with a passion for landscape and portrait shooting. 
                                 When I have fed up with all of these digital media and need to clear my mind, I enjoy sailing my Ixylon or or going for a long run.</p>
                             </div>
@@ -254,6 +254,7 @@
                 </div>
             </div>
         </div>
+        <div class="c-scroll"></div>
         <div class="imprint-modal" id="imprint_bg">
             <div class="imprint-modal_content" id="imprint_modal">
                 <div id="imprint_modal_close" class="imprint-modal_close">
@@ -324,6 +325,12 @@
             }
         }
 
+
+
+        var raf = window.requestAnimationFrame || window.setImmediate || function(c) { return setTimeout(c, 0); };
+        var scrollBar = document.getElementsByClassName("c-scroll")[0];
+        var scrollBarTrack = document.getElementsByClassName("c-scroll-track")[0];
+
         var group1 = document.getElementById("group1");
         var group2 = document.getElementById("group2");
         var group3 = document.getElementById("group3");
@@ -343,6 +350,38 @@
         var rect_g3 = group3.getBoundingClientRect();
         var rect_g4 = group4.getBoundingClientRect();
         var rect_head = header.getBoundingClientRect();
+
+        var scrollRatio;
+        var fadeOutCounter = 0;
+        var scrollBarDrag = false;
+        window.lastScrollTime = null;
+        window.lastMousePosX = null;
+
+        function moveBar(e) {
+            var totalHeight = parallax.scrollHeight;
+            var ownHeight = parallax.clientHeight;
+
+            scrollRatio = ownHeight / totalHeight;
+
+            raf(function() {
+                if(scrollRatio >= 1) {
+                    scrollBar.classList.add('c-scroll-hidden');
+                } else {
+                    if(parallax.scrollTop > 0) {
+                        scrollBar.classList.add("c-scroll-visible");
+                    }
+                    scrollBar.classList.remove('c-scroll-hidden');
+                    scrollBar.style.cssText = 'height:' + Math.max(scrollRatio * 100, 10) + '%; top:' + (parallax.scrollTop * 100 / parallax.scrollHeight) + '%;';
+                }
+            });
+
+            setTimeout(function() {
+                console.log(!is_scrolling() && !scrollBarDrag && !((parallax.getBoundingClientRect().width - 15) <= lastMousePosX));
+                if(!is_scrolling() && !scrollBarDrag && !((parallax.getBoundingClientRect().width - 15) <= lastMousePosX)) {
+                    scrollBar.classList.remove("c-scroll-visible");
+                }
+            }, 1000);
+        }
 
         modalLink.onclick = function() {
             modalBg.style.opacity = 1;
@@ -401,8 +440,8 @@
             }, 700);
         }
 
-        window.addEventListener('resize', function() {setDocHeight(); setGroup3BackgroundHeight();});
-        window.addEventListener('orientationchange', coordinateOrientationChange);
+        window.addEventListener('resize', function() {setDocHeight(); setGroup3BackgroundHeight();moveBar()});
+        window.addEventListener('orientationchange', function(){coordinateOrientationChange();moveBar()});
 
         setDocHeight();
         setGroup3BackgroundHeight();
@@ -441,6 +480,81 @@
                     changeMenuMarker(header.children[0],false);
                 }
             }
+
+            moveBar();
+            window.lastScrollTime = new Date().getTime();
         });
+
+
+        function is_scrolling() {
+            return !!window.lastScrollTime && new Date().getTime() < (window.lastScrollTime + 1000)
+        }
+
+        if(!(('ontouchstart' in window) || (navigator.maxTouchPoints > 0) || (navigator.msMaxTouchPoints > 0))) {
+            document.addEventListener("mousemove", function(e) {
+                lastMousePosX = e.pageX;
+                if(scrollBarDrag || ((parallax.getBoundingClientRect().width - 15) <= e.pageX)) {
+                    scrollBar.classList.add("c-scroll-visible");
+                } else {
+                    if(!is_scrolling()) {
+                        scrollBar.classList.remove("c-scroll-visible");
+                    }
+                }
+            });
+        }
+
+        var lastPos = { top: 0, y: 0 };
+        scrollBar.addEventListener("mousedown", function(e) {
+            lastPos.top = parallax.scrollTop;
+            lastPos.y = e.clientY;
+            scrollBar.classList.add("c-scroll-grabbed");
+            scrollBar.classList.add("c-scroll-visible");
+            header.classList.add("c-scroll-grabbed");
+            parallax.classList.add("c-scroll-grabbed");
+            scrollBarDrag = true;
+
+            e.preventDefault();
+            e.stopPropagation();
+
+            document.addEventListener("mousemove", drag);
+            document.addEventListener("mouseup", stop);
+            document.addEventListener("click", preventClick);
+            document.addEventListener("dblclick", preventClick);
+
+            function drag(e) {
+                var dy = (e.clientY - lastPos.y);
+                
+                e.preventDefault();
+                e.stopPropagation();
+
+                raf(function() {
+                    parallax.scrollTop = lastPos.top + dy / scrollRatio;
+                });
+            }
+
+            function stop(e) {
+                scrollBar.classList.remove("c-scroll-grabbed");
+                parallax.classList.remove("c-scroll-grabbed");
+                header.classList.remove("c-scroll-grabbed");
+                document.removeEventListener('mousemove', drag);
+                document.removeEventListener('mouseup', stop);
+                document.removeEventListener("click", preventClick);
+                document.removeEventListener("dblclick", preventClick);
+                scrollBarDrag = false;
+
+                if(!((parallax.getBoundingClientRect().width - 15) <= e.pageX)) {
+                    scrollBar.classList.remove("c-scroll-visible");
+                }
+            }
+
+            function preventClick(e) {
+                e.preventDefault();
+                e.stopPropagation();
+            }
+            
+        });
+
+        moveBar();
+
     </script>
 </html>

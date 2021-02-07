@@ -376,7 +376,6 @@
             });
 
             setTimeout(function() {
-                console.log(!is_scrolling() && !scrollBarDrag && !((parallax.getBoundingClientRect().width - 15) <= lastMousePosX));
                 if(!is_scrolling() && !scrollBarDrag && !((parallax.getBoundingClientRect().width - 15) <= lastMousePosX)) {
                     scrollBar.classList.remove("c-scroll-visible");
                 }

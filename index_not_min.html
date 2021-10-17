@@ -32,7 +32,7 @@
         <script src="./script/bodyScrollLock.min.js"></script>
         <link rel="preconnect" href="https://fonts.gstatic.com" />
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100;200;300;400&display=swap" />
-        <link rel="stylesheet" href="style_not_min.css" type="text/css" />
+        <link rel="stylesheet" href="style.css" type="text/css" />
     </head>
     <body>
         <noscript class="noscript">You need to enable JavaScript to view this page.</noscript>
@@ -83,7 +83,7 @@
                                 After earning my bachelor's degree in computer science at Leibniz University of Hanover in 2017, I started to focus on cyber security in more detail and decided to pursue an IT master's degree specializing in this scientific field at TU Braunschweig (technical university).</p>
                                 <p>In my leisure time I like to play CTFs or participate in ethical hacking labs.
                                 Furthermore, I am a hobby photographer with a passion for landscape and portrait shooting. 
-                                When I have fed up with all of these digital media and need to clear my mind, I enjoy sailing my Ixylon or or going for a long run.</p>
+                                When I have fed up with all of these digital media and need to clear my mind, I enjoy sailing or or going for a long run.</p>
                             </div>
                         </div>
                     </div>
@@ -233,7 +233,7 @@
                                     <div class="social-media_tooltip">LinkedIn</div>
                                     <span><i class="fab fa-linkedin-in"></i></span>
                                 </a>
-                                <a href="https://github.com/bolli95" class="social-media_icon github" target="_blank" rel="noopener noreferrer">
+                                <a href="https://github.com/m-boll" class="social-media_icon github" target="_blank" rel="noopener noreferrer">
                                     <div class="social-media_tooltip">Github</div>
                                     <span><i class="fa fa-github"></i></span>
                                 </a>
@@ -247,7 +247,7 @@
                                 </a>
                             </div>
                             <div class="footer_bottom">
-                                <p>&copy;2020 Max Boll &mdash; <a id="modalLink" href="javascript:void(0);">Imprint</a></p>
+                                <p>&copy;2021 Max Boll &mdash; <a id="modalLink" href="javascript:void(0);">Imprint</a></p>
                             </div>
                         </div>
                     </div>
@@ -263,292 +263,12 @@
                 <div class="u_headline imprint-modal_heading">Imprint</div>
                 <div class="imprint-modal_paragraph">
                     <h4>Contact:</h4><br>
-		    <p>Max Boll<br>
-		    <br>
-		    <b>E-Mail:</b> f0ohd83uw@relay.firefox.com</p>
+            <p>Max Boll<br>
+            <br>
+            <b>E-Mail:</b> f0ohd83uw@relay.firefox.com</p>
                 </div>
             </div>
         </div>
     </body>
-    <script>
-
-        var menuItemClickedQueue = [];
-
-        function resetMenuHighlighting(menubar) {
-            menubar.childNodes.forEach(function(x) {
-                if(x.nodeType == 1) {
-                    x.classList.remove("menu_active");
-                }
-            });
-        }
-
-        function changeMenuMarker(elem, clickEvt) {
-            if(menuItemClickedQueue.length === 0 || (clickEvt && menuItemClickedQueue[menuItemClickedQueue.length - 1] !== elem.text)) {
-                switch(elem.text) {
-                    case "Home": 
-                        document.getElementById("marker").className = "start-home";
-                        var menubar = document.getElementById("menubar");
-                        resetMenuHighlighting(menubar);
-                        elem.classList.add("menu_active");
-                        break;
-                    case "About":
-                        document.getElementById("marker").className = "start-about";
-                        var menubar = document.getElementById("menubar");
-                        resetMenuHighlighting(menubar);
-                        elem.classList.add("menu_active");
-                        break;
-                    case "Skills":
-                        document.getElementById("marker").className = "start-skills";
-                        var menubar = document.getElementById("menubar");
-                        resetMenuHighlighting(menubar);
-                        elem.classList.add("menu_active");
-                        break;
-                    case "Publications":
-                    case "Publicat.":
-                        document.getElementById("marker").className = "start-pub";
-                        var menubar = document.getElementById("menubar");
-                        resetMenuHighlighting(menubar);
-                        elem.classList.add("menu_active");
-                        break;
-                }
-                if(clickEvt) {
-                    menuItemClickedQueue.push(elem.text);
-                    setTimeout(function() {
-                        menuItemClickedQueue.shift();
-                    }, 900);
-                }
-            }
-        }
-
-
-
-        var raf = window.requestAnimationFrame || window.setImmediate || function(c) { return setTimeout(c, 0); };
-        var scrollBar = document.getElementsByClassName("c-scroll")[0];
-        var scrollBarTrack = document.getElementsByClassName("c-scroll-track")[0];
-
-        var group1 = document.getElementById("group1");
-        var group2 = document.getElementById("group2");
-        var group3 = document.getElementById("group3");
-        var group4 = document.getElementById("group3");
-        var skill_container = document.getElementById("skill_container");
-        var header = document.getElementById("menubar");
-        var marker = document.getElementById("marker");
-        var parallax =  document.getElementById("parallax");
-        var modalLink = document.getElementById("modalLink");
-        var modalBg = document.getElementById("imprint_bg");
-        var modal_imprint = document.getElementById("imprint_modal");
-        var modal_close = document.getElementById("imprint_modal_close");
-        var footer = document.getElementById("footer");
-        var rect_footer = footer.getBoundingClientRect();
-        var rect_g1 = group1.getBoundingClientRect();
-        var rect_g2 = group2.getBoundingClientRect();
-        var rect_g3 = group3.getBoundingClientRect();
-        var rect_g4 = group4.getBoundingClientRect();
-        var rect_head = header.getBoundingClientRect();
-
-        var scrollRatio;
-        var fadeOutCounter = 0;
-        var scrollBarDrag = false;
-        window.lastScrollTime = null;
-        window.lastMousePosX = null;
-
-        function moveBar(e) {
-            var totalHeight = parallax.scrollHeight;
-            var ownHeight = parallax.clientHeight;
-
-            scrollRatio = ownHeight / totalHeight;
-
-            raf(function() {
-                if(scrollRatio >= 1) {
-                    scrollBar.classList.add('c-scroll-hidden');
-                } else {
-                    if(parallax.scrollTop > 0) {
-                        scrollBar.classList.add("c-scroll-visible");
-                    }
-                    scrollBar.classList.remove('c-scroll-hidden');
-                    scrollBar.style.cssText = 'height:' + Math.max(scrollRatio * 100, 10) + '%; top:' + (parallax.scrollTop * 100 / parallax.scrollHeight) + '%;';
-                }
-            });
-
-            setTimeout(function() {
-                if(!is_scrolling() && !scrollBarDrag && !((parallax.getBoundingClientRect().width - 15) <= lastMousePosX)) {
-                    scrollBar.classList.remove("c-scroll-visible");
-                }
-            }, 1000);
-        }
-
-        modalLink.onclick = function() {
-            modalBg.style.opacity = 1;
-            modalBg.style.visibility = "visible";
-            modal_imprint.style.opacity = 1;
-            modal_imprint.style.visibility = "visible";
-            modal_imprint.style.top = "50%";
-        };
-
-        modal_close.onclick = function() {
-            modalBg.style.opacity = 0;
-            modalBg.style.visibility = "hidden";
-            modal_imprint.style.opacity = 0;
-            modal_imprint.style.visibility = "hidden";
-            modal_imprint.style.top = "0%";
-        };
-
-        bodyScrollLock.disableBodyScroll(parallax);
-
-        function setDocHeight() {
-            setTimeout(function() {
-                bodyScrollLock.enableBodyScroll(parallax);
-                window.scrollTo(0,0);
-                modalBg.style.setProperty('height', Number(window.innerHeight) + 'px');
-                parallax.style.setProperty('height', Number(window.innerHeight) + 'px');
-                group1.style.setProperty('height', Number(window.innerHeight) + 'px');                
-                bodyScrollLock.disableBodyScroll(parallax);
-            }, 500);
-        }
-
-        function setGroup3BackgroundHeight() {
-            group3.style.setProperty('height', (Number(skill_container.getBoundingClientRect().height) + 20) + 'px');
-        }
-
-        function coordinateOrientationChange() {
-            var rect_g1_old = JSON.parse(JSON.stringify(rect_g1));
-            var rect_g2_old = JSON.parse(JSON.stringify(rect_g2));
-            var rect_g3_old = JSON.parse(JSON.stringify(rect_g3));
-            var rect_g4_old = JSON.parse(JSON.stringify(rect_g4));
-            var rect_footer_old = JSON.parse(JSON.stringify(rect_footer));
-            var rect_head_old = JSON.parse(JSON.stringify(rect_head));
-            setTimeout(function() {
-                var rect_g2_new = group2.getBoundingClientRect();
-                var rect_g3_new = group3.getBoundingClientRect();
-                var rect_g4_new = group4.getBoundingClientRect();
-                var rect_footer_new = footer.getBoundingClientRect();
-                if(0 > (rect_g1_old.y + rect_g1_old.height - rect_head_old.height) && 0 <= (rect_g2_old.y + rect_g2_old.height - rect_head_old.height)) {
-                    parallax.scrollBy(0, rect_g2_new.y - rect_g2_old.y);
-                } else if(0 > (rect_g2_old.y + rect_g2_old.height - rect_head_old.height) && 0 <= (rect_g3_old.y + rect_g3_old.height - rect_head_old.height)) {
-                    parallax.scrollBy(0, rect_g3_new.y - rect_g3_old.y);
-                } else if(0 > (rect_g3_old.y + rect_g3_old.height - rect_head_old.height) && 0 <= (rect_g4_old.y + rect_g4_old.height - rect_head_old.height)) {
-                    parallax.scrollBy(0, rect_g4_new.y - rect_g4_old.y);
-                } else if(0 > (rect_g4_old.y + rect_g4_old.height - rect_head_old.height) && 0 <= (rect_footer_old.y + rect_footer_old.height - rect_head_old.height)) {
-                    parallax.scrollBy(0, rect_footer_new.y - rect_footer_old.y);
-                }
-            }, 700);
-        }
-
-        window.addEventListener('resize', function() {setDocHeight(); setGroup3BackgroundHeight();moveBar()});
-        window.addEventListener('orientationchange', function(){coordinateOrientationChange();moveBar()});
-
-        setDocHeight();
-        setGroup3BackgroundHeight();
-
-        var isSafari = !!navigator.userAgent.match(/Version\/[\d\.]+.*Safari/);
-        var iOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
-
-        if (isSafari && iOS) {
-            Array.from(document.getElementsByClassName("link-card_padding_container")).forEach(function(x) {
-                x.style.display = "block";
-            });
-            Array.from(document.getElementsByClassName("link-card_info")).forEach(function(x) {
-                x.style.paddingLeft = "10px";
-            });
-        }
-
-        parallax.addEventListener("scroll", function() {
-
-            rect_footer = footer.getBoundingClientRect();
-            rect_g1 = group1.getBoundingClientRect();
-            rect_g2 = group2.getBoundingClientRect();
-            rect_g3 = group3.getBoundingClientRect();
-            rect_g4 = group4.getBoundingClientRect();
-            rect_head = header.getBoundingClientRect();
-
-            header.classList.toggle("sticky_menu_bar", rect_g1.top < 0);
-
-            if(menuItemClickedQueue.length === 0) {
-                if(0 > (rect_g1.y + rect_g1.height - rect_head.height) && 0 <= (rect_g2.y + rect_g2.height - rect_head.height) && marker.className != "start-about") {
-                    changeMenuMarker(header.children[1],false);
-                } else if(0 > (rect_g2.y + rect_g2.height - rect_head.height) && 0 <= (rect_g3.y + rect_g3.height - rect_head.height) && marker.className != "start-skills") {
-                    changeMenuMarker(header.children[2],false);
-                } else if(0 > (rect_g3.y + rect_g3.height - rect_head.height) && marker.className != "start-pub") {
-                    changeMenuMarker(((window.getComputedStyle(header.children[3]).display === "none") ? header.children[4] : header.children[3]),false);
-                } else if(0 < (rect_g1.y + rect_g1.height - rect_head.height) && marker.className != "start-home") {
-                    changeMenuMarker(header.children[0],false);
-                }
-            }
-
-            moveBar();
-            window.lastScrollTime = new Date().getTime();
-        });
-
-
-        function is_scrolling() {
-            return !!window.lastScrollTime && new Date().getTime() < (window.lastScrollTime + 1000)
-        }
-
-        if(!(('ontouchstart' in window) || (navigator.maxTouchPoints > 0) || (navigator.msMaxTouchPoints > 0))) {
-            document.addEventListener("mousemove", function(e) {
-                lastMousePosX = e.pageX;
-                if(scrollBarDrag || ((parallax.getBoundingClientRect().width - 15) <= e.pageX)) {
-                    scrollBar.classList.add("c-scroll-visible");
-                } else {
-                    if(!is_scrolling()) {
-                        scrollBar.classList.remove("c-scroll-visible");
-                    }
-                }
-            });
-        }
-
-        var lastPos = { top: 0, y: 0 };
-        scrollBar.addEventListener("mousedown", function(e) {
-            lastPos.top = parallax.scrollTop;
-            lastPos.y = e.clientY;
-            scrollBar.classList.add("c-scroll-grabbed");
-            scrollBar.classList.add("c-scroll-visible");
-            header.classList.add("c-scroll-grabbed");
-            parallax.classList.add("c-scroll-grabbed");
-            scrollBarDrag = true;
-
-            e.preventDefault();
-            e.stopPropagation();
-
-            document.addEventListener("mousemove", drag);
-            document.addEventListener("mouseup", stop);
-            document.addEventListener("click", preventClick);
-            document.addEventListener("dblclick", preventClick);
-
-            function drag(e) {
-                var dy = (e.clientY - lastPos.y);
-                
-                e.preventDefault();
-                e.stopPropagation();
-
-                raf(function() {
-                    parallax.scrollTop = lastPos.top + dy / scrollRatio;
-                });
-            }
-
-            function stop(e) {
-                scrollBar.classList.remove("c-scroll-grabbed");
-                parallax.classList.remove("c-scroll-grabbed");
-                header.classList.remove("c-scroll-grabbed");
-                document.removeEventListener('mousemove', drag);
-                document.removeEventListener('mouseup', stop);
-                document.removeEventListener("click", preventClick);
-                document.removeEventListener("dblclick", preventClick);
-                scrollBarDrag = false;
-
-                if(!((parallax.getBoundingClientRect().width - 15) <= e.pageX)) {
-                    scrollBar.classList.remove("c-scroll-visible");
-                }
-            }
-
-            function preventClick(e) {
-                e.preventDefault();
-                e.stopPropagation();
-            }
-            
-        });
-
-        moveBar();
-
-    </script>
+    <script>var menuItemClickedQueue=[];function resetMenuHighlighting(e){e.childNodes.forEach(function(e){1==e.nodeType&&e.classList.remove("menu_active")})}function changeMenuMarker(e,t){if(0===menuItemClickedQueue.length||t&&menuItemClickedQueue[menuItemClickedQueue.length-1]!==e.text){switch(e.text){case"Home":document.getElementById("marker").className="start-home",resetMenuHighlighting(document.getElementById("menubar")),e.classList.add("menu_active");break;case"About":document.getElementById("marker").className="start-about",resetMenuHighlighting(document.getElementById("menubar")),e.classList.add("menu_active");break;case"Skills":document.getElementById("marker").className="start-skills",resetMenuHighlighting(document.getElementById("menubar")),e.classList.add("menu_active");break;case"Publications":case"Publicat.":document.getElementById("marker").className="start-pub",resetMenuHighlighting(document.getElementById("menubar")),e.classList.add("menu_active")}t&&(menuItemClickedQueue.push(e.text),setTimeout(function(){menuItemClickedQueue.shift()},900))}}var scrollRatio,raf=window.requestAnimationFrame||window.setImmediate||function(e){return setTimeout(e,0)},scrollBar=document.getElementsByClassName("c-scroll")[0],scrollBarTrack=document.getElementsByClassName("c-scroll-track")[0],group1=document.getElementById("group1"),group2=document.getElementById("group2"),group3=document.getElementById("group3"),group4=document.getElementById("group3"),skill_container=document.getElementById("skill_container"),header=document.getElementById("menubar"),marker=document.getElementById("marker"),parallax=document.getElementById("parallax"),modalLink=document.getElementById("modalLink"),modalBg=document.getElementById("imprint_bg"),modal_imprint=document.getElementById("imprint_modal"),modal_close=document.getElementById("imprint_modal_close"),footer=document.getElementById("footer"),rect_footer=footer.getBoundingClientRect(),rect_g1=group1.getBoundingClientRect(),rect_g2=group2.getBoundingClientRect(),rect_g3=group3.getBoundingClientRect(),rect_g4=group4.getBoundingClientRect(),rect_head=header.getBoundingClientRect(),fadeOutCounter=0,scrollBarDrag=!1;function moveBar(e){var t=parallax.scrollHeight,r=parallax.clientHeight;scrollRatio=r/t,raf(function(){scrollRatio>=1?scrollBar.classList.add("c-scroll-hidden"):(parallax.scrollTop>0&&scrollBar.classList.add("c-scroll-visible"),scrollBar.classList.remove("c-scroll-hidden"),scrollBar.style.cssText="height:"+Math.max(100*scrollRatio,10)+"%; top:"+100*parallax.scrollTop/parallax.scrollHeight+"%;")}),setTimeout(function(){is_scrolling()||scrollBarDrag||parallax.getBoundingClientRect().width-15<=lastMousePosX||scrollBar.classList.remove("c-scroll-visible")},1e3)}function setDocHeight(){setTimeout(function(){bodyScrollLock.enableBodyScroll(parallax),window.scrollTo(0,0),modalBg.style.setProperty("height",Number(window.innerHeight)+"px"),parallax.style.setProperty("height",Number(window.innerHeight)+"px"),group1.style.setProperty("height",Number(window.innerHeight)+"px"),bodyScrollLock.disableBodyScroll(parallax)},500)}function setGroup3BackgroundHeight(){group3.style.setProperty("height",Number(skill_container.getBoundingClientRect().height)+20+"px")}function coordinateOrientationChange(){var e=JSON.parse(JSON.stringify(rect_g1)),t=JSON.parse(JSON.stringify(rect_g2)),r=JSON.parse(JSON.stringify(rect_g3)),l=JSON.parse(JSON.stringify(rect_g4)),a=JSON.parse(JSON.stringify(rect_footer)),i=JSON.parse(JSON.stringify(rect_head));setTimeout(function(){var o=group2.getBoundingClientRect(),n=group3.getBoundingClientRect(),c=group4.getBoundingClientRect(),s=footer.getBoundingClientRect();0>e.y+e.height-i.height&&0<=t.y+t.height-i.height?parallax.scrollBy(0,o.y-t.y):0>t.y+t.height-i.height&&0<=r.y+r.height-i.height?parallax.scrollBy(0,n.y-r.y):0>r.y+r.height-i.height&&0<=l.y+l.height-i.height?parallax.scrollBy(0,c.y-l.y):0>l.y+l.height-i.height&&0<=a.y+a.height-i.height&&parallax.scrollBy(0,s.y-a.y)},700)}window.lastScrollTime=null,window.lastMousePosX=null,modalLink.onclick=function(){modalBg.style.opacity=1,modalBg.style.visibility="visible",modal_imprint.style.opacity=1,modal_imprint.style.visibility="visible",modal_imprint.style.top="50%"},modal_close.onclick=function(){modalBg.style.opacity=0,modalBg.style.visibility="hidden",modal_imprint.style.opacity=0,modal_imprint.style.visibility="hidden",modal_imprint.style.top="0%"},bodyScrollLock.disableBodyScroll(parallax),window.addEventListener("resize",function(){setDocHeight(),setGroup3BackgroundHeight(),moveBar()}),window.addEventListener("orientationchange",function(){coordinateOrientationChange(),moveBar()}),setDocHeight(),setGroup3BackgroundHeight();var isSafari=!!navigator.userAgent.match(/Version\/[\d\.]+.*Safari/),iOS=/iPad|iPhone|iPod/.test(navigator.userAgent)&&!window.MSStream;function is_scrolling(){return!!window.lastScrollTime&&(new Date).getTime()<window.lastScrollTime+1e3}isSafari&&iOS&&(Array.from(document.getElementsByClassName("link-card_padding_container")).forEach(function(e){e.style.display="block"}),Array.from(document.getElementsByClassName("link-card_info")).forEach(function(e){e.style.paddingLeft="10px"})),parallax.addEventListener("scroll",function(){rect_footer=footer.getBoundingClientRect(),rect_g1=group1.getBoundingClientRect(),rect_g2=group2.getBoundingClientRect(),rect_g3=group3.getBoundingClientRect(),rect_g4=group4.getBoundingClientRect(),rect_head=header.getBoundingClientRect(),header.classList.toggle("sticky_menu_bar",rect_g1.top<0),0===menuItemClickedQueue.length&&(0>rect_g1.y+rect_g1.height-rect_head.height&&0<=rect_g2.y+rect_g2.height-rect_head.height&&"start-about"!=marker.className?changeMenuMarker(header.children[1],!1):0>rect_g2.y+rect_g2.height-rect_head.height&&0<=rect_g3.y+rect_g3.height-rect_head.height&&"start-skills"!=marker.className?changeMenuMarker(header.children[2],!1):0>rect_g3.y+rect_g3.height-rect_head.height&&"start-pub"!=marker.className?changeMenuMarker("none"===window.getComputedStyle(header.children[3]).display?header.children[4]:header.children[3],!1):0<rect_g1.y+rect_g1.height-rect_head.height&&"start-home"!=marker.className&&changeMenuMarker(header.children[0],!1)),moveBar(),window.lastScrollTime=(new Date).getTime()}),"ontouchstart"in window||navigator.maxTouchPoints>0||navigator.msMaxTouchPoints>0||document.addEventListener("mousemove",function(e){lastMousePosX=e.pageX,scrollBarDrag||parallax.getBoundingClientRect().width-15<=e.pageX?scrollBar.classList.add("c-scroll-visible"):is_scrolling()||scrollBar.classList.remove("c-scroll-visible")});var lastPos={top:0,y:0};scrollBar.addEventListener("mousedown",function(e){function t(e){var t=e.clientY-lastPos.y;e.preventDefault(),e.stopPropagation(),raf(function(){parallax.scrollTop=lastPos.top+t/scrollRatio})}function r(e){e.preventDefault(),e.stopPropagation()}lastPos.top=parallax.scrollTop,lastPos.y=e.clientY,scrollBar.classList.add("c-scroll-grabbed"),scrollBar.classList.add("c-scroll-visible"),header.classList.add("c-scroll-grabbed"),parallax.classList.add("c-scroll-grabbed"),scrollBarDrag=!0,e.preventDefault(),e.stopPropagation(),document.addEventListener("mousemove",t),document.addEventListener("mouseup",function e(l){scrollBar.classList.remove("c-scroll-grabbed");parallax.classList.remove("c-scroll-grabbed");header.classList.remove("c-scroll-grabbed");document.removeEventListener("mousemove",t);document.removeEventListener("mouseup",e);document.removeEventListener("click",r);document.removeEventListener("dblclick",r);scrollBarDrag=!1;parallax.getBoundingClientRect().width-15<=l.pageX||scrollBar.classList.remove("c-scroll-visible")}),document.addEventListener("click",r),document.addEventListener("dblclick",r)}),moveBar();</script>
 </html>

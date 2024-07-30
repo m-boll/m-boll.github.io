@@ -761,6 +761,11 @@ nav .start-pub, a:nth-child(4):hover~#marker {
 /*
  * Publications
  */
+
+.small_screen_hint {
+    display: none;
+}
+
  .u_headline.pub {
     color: black;
 }
@@ -1408,6 +1413,15 @@ nav .start-pub, a:nth-child(4):hover~#marker {
         margin: 1.5%;
     }
 
+    .small_screen_hint {
+        display: block;
+        margin: 10%;
+    }
+
+    .link-card-container {
+        display: none;
+    }
+        
     #hobby_part {
         display: none;
     }
